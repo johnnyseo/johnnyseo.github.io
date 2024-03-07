@@ -95,13 +95,108 @@
             style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
           />
         </picture>
-    </span></p>
+    </span>
+크롬 버전이 중요한 이유는, Selenium이 Chrome Driver를 활용해서 사람이 하는 것처럼 웹브라우져를 제어하기 때문입니다. 보통 크롬은 자동으로 최신버전으로 업데이트를 해주기 때문에 ChromeDriver 이 지원하는 버전에 맞는 크롬을 설치해야 합니다.</p>
 </li>
 <li>
 <p>Chrome 브라우저 : 실제로 크롤링에 활용할 웹브라우저입니다. ChromeDriver가 보통 최신의 크롬브라우저 지원을 따라가지 못하기 때문에 다운로드받을 ChromeDriver 버전에 맞는 크롬 브라우저를 설치해야합니다. 이번 케이스에서는 114 버전을 사용하였습니다.<br>
-아래 링크에서 버전별 크롬 브라우저 설치파일을 받을 수 있습니다.</p>
+아래 링크에서 버전별 크롬 브라우저 설치파일을 받을 수 있습니다.<br>
+<a href="https://google-chrome.kr.uptodown.com/windows/versions" target="_blank" rel="nofollow">https://google-chrome.kr.uptodown.com/windows/versions</a></p>
 </li>
 </ul>
+<p><br/><br/></p>
+<h2>3. 분석</h2>
+<h3>사이트 구조 분석</h3>
+<p>제가 수집할 내용은 알림장의 날짜와 알림장내용 입니다. 웹브라우저에서 해당 부분을 우클릭하여 검사를 누르면 개발자모드가 표출되면서 해당 부분의 코드를 찾을 수 있습니다.
+화면영역과 코드부분을 번갈아가면서 하이라이트 된 부분을 확인하고 구조를 파악합니다.
+구조를 파악해서 아래 그림처럼 분석이 되었습니다.</p>
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; ">
+      <a class="gatsby-resp-image-link" href="/static/85cb221b8fbaadea4d69c24de1da5dd4/7c717/image-5.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 78.64583333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtklEQVR42q1U2W7CMBDMt7biZ1CE8sBD+xMVKnwGDwQJJMR9Rtx3wMKwnbFiFHG2FZYGx/bu7Ox6jdPv9xPNZvMzn8+nKpWKFwSB1+v1vPl87k2nUwPul8tlbzwen2HPIqRms9lHq9VKONvtNicY+/1eHw4HIcIwlPjQWpv9e+N4PGrOq9Uq66zX6+9oX9GXxJPJRINU40wjoFlXq1XdaDQ0stH1el0vl0tzRpvNZkNf6XQ6GRLm4lHiCk+n01nhbrcTpZQ55wz7K4UgzN4kRGSBKimVSlIoFAR1ZkmkVquJ7/sCtYIak0CKxSJhfGF3mxC1EKQhuCDBBclisTBrkqDwgkswAeEr7XabdvcJmR7qY9LiTCKqYxAGIxFtONs1607fbrd7WyEjE1Q4GAyMQpaByuAkaBED7jOD4XD4mNBeCpWw+Lwcgt8Wdk0bzZ9Hl3LZh88GyP9PaFW/jND25ssIf5NyJkqFLIojekoKQa6AYAotpNBSxo7fQMgyoCe//qSQ9eMZW4htFWt444uXlHXQ+e9ozvRoNEoCLnrPRSQXey7Xl4C9C0cXfxTnGU8xiTmNZ/r2A4ymuPIbm9cYAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/85cb221b8fbaadea4d69c24de1da5dd4/a59e9/image-5.webp 192w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/0ca9f/image-5.webp 384w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/dc9b9/image-5.webp 768w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/e2c2f/image-5.webp 1152w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/f3efb/image-5.webp 1536w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/d2ede/image-5.webp 1884w" sizes="(max-width: 768px) 100vw, 768px" type="image/webp">
+          <source srcset="/static/85cb221b8fbaadea4d69c24de1da5dd4/3b721/image-5.png 192w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/66595/image-5.png 384w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/fe486/image-5.png 768w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/d2d74/image-5.png 1152w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/e8464/image-5.png 1536w,
+/static/85cb221b8fbaadea4d69c24de1da5dd4/7c717/image-5.png 1884w" sizes="(max-width: 768px) 100vw, 768px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/85cb221b8fbaadea4d69c24de1da5dd4/fe486/image-5.png" alt="image 5" title="" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+<p>알림장 페이지를 보면 작성된 알림장 1건이 카드 형태로 되어있고, <strong>4x3 배열</strong>로 구성되어있음을 알 수 있습니다.</p>
+<p>그리고 하단엔 이전페이지, 다음페이지를 조회할 수 있는 <strong>버튼</strong>이 있습니다.<br>
+<br/><br/></p>
+<h3>수집 대상 분석</h3>
+<br/>
+<h4>알림장 모음 영역 찾기</h4>
+<p>우선 알림장들이 모여있는 영역의 바로 바깥 레이어의 div 를 찾습니다.<br>
+(모자이크가 많이 지저분하네요 ㅜㅜ 그래도 개인정보는 소중하니까요 ^^)</p>
+<p>코드부분에 마우스를 올리면 해당 부분이 브라우저 화면 영역에 하이라이트 됩니다.
+(개인정보를 위한 모자이크와 헷갈리지 마세요 ㅋㅋ 하이라이트는 하늘색 부분입니다.)<br>
+<a href="https://google-chrome.en.uptodown.com/windows/versions" target="_blank" rel="nofollow">https://google-chrome.en.uptodown.com/windows/versions</a></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c0de7e455572ede4b17025c6fb5793b1/31a47/image-4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53.645833333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACdUlEQVR42i2TaU/UUBSG+el+8oMxRANGhmVEDSguMYKACWBUxKAfcIOICsgsXWba3t4u0708nunY5M05t719cs57z53SvsL1fPqmjWkPsSwbQ/Ke5WIPRY6LNXCwB0OGjsdg4DIwLKLQRwU+QaAJRb4OSZOEKeV72K6iqmuKoqIsiya6UUleFFTV+N1EeVGLSsyh5sOJ4tOp5vA05NxKKWXv+JlSyqFvdBpIPBpxdVXLzyWFqBTYOFYNrGTjZ8mRUXHuZHR7Ho6f4ekMHeckSQp1xVSapgIryPISw1IYdogOE0ZpQTSSjRJDiWGcYasYV49wVEgWBIS+RvuSCyxPskmFifRdVyWOTri5dsjttQMebv/l+WebRzsmzz9ZrOxbrO4arHw0+H6ppeJMACn+0KNviYc6kparCbCQdsQ+dJRyd/cXM+vHtDY7LB1YtDZ63Nm5YG6ny/xmj7l9g6+XAWWeSVclkaewnBDlaZJ49B+YJk2io4L7b0wWtkzar23ufxyw+ErW2z1Rn/aG5LsWX85D6jJvPI2UwjRdeqbCV/4EqKOs+eiKueMqFjYNbrR+cG32HbfbJ816ccug9bTL7MsuR39047kOEqIgQjkKzwvo9F3S/EqAYUQqVWoxffl9l7m9DtMrX7n+4IBbqycsvTNovzcbG+7sXXDcEw8FGMiBpFkmdl2JarLs/9jk+eR0/Lhg4W2fuddjv/rM7/WYXzdZPhiyvD8UYJ/Z3a4Ao2Y8Qmk3a4C1jBrkeT4Bes5AZmhEx/CYeXzM9MNvzD/9zb31CxafnLG4fkZb8qVnZ7RenHP43SKONI7cnPHcxvFEWgfNcP8De6kikPPyxVcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c0de7e455572ede4b17025c6fb5793b1/a59e9/image-4.webp 192w,
+/static/c0de7e455572ede4b17025c6fb5793b1/0ca9f/image-4.webp 384w,
+/static/c0de7e455572ede4b17025c6fb5793b1/dc9b9/image-4.webp 768w,
+/static/c0de7e455572ede4b17025c6fb5793b1/e2c2f/image-4.webp 1152w,
+/static/c0de7e455572ede4b17025c6fb5793b1/f3efb/image-4.webp 1536w,
+/static/c0de7e455572ede4b17025c6fb5793b1/d6cb9/image-4.webp 1921w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c0de7e455572ede4b17025c6fb5793b1/3b721/image-4.png 192w,
+/static/c0de7e455572ede4b17025c6fb5793b1/66595/image-4.png 384w,
+/static/c0de7e455572ede4b17025c6fb5793b1/fe486/image-4.png 768w,
+/static/c0de7e455572ede4b17025c6fb5793b1/d2d74/image-4.png 1152w,
+/static/c0de7e455572ede4b17025c6fb5793b1/e8464/image-4.png 1536w,
+/static/c0de7e455572ede4b17025c6fb5793b1/31a47/image-4.png 1921w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c0de7e455572ede4b17025c6fb5793b1/fe486/image-4.png"
+            alt="Alt text"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<br/><br/></p>
+<h4>알림장 영역 찾기</h4>
+<h4>날짜, 텍스트 영역 찾기</h4>
+<h3>크롤링 흐름 정의</h3>
+<h2>4. 코딩</h2>
+<h2>5. 실행</h2>
+<h2>6. 기능확장?</h2>
+<p>키즈노트 사이트나 앱에서 보는것과 비교할때 가장 큰 단점은 사진이 표출되지 않는다는 점입니다. 알림장과 사진이 함께 보이면 더더욱 좋겠지만 서비스 제작목적과는 좀 벗어나있죠.. 그래서 나중에 여유가 된다면 사진까지 함께 저장해서 pdf나 웹사이트에서 내 입맛대로 볼수있는 기능도 추가해볼까 합니다.</p>
 <p>[TBD]</p></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😊<br/>© 2024 JohnnySeo, Powerd By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2024-02-20/키즈노트-크롤링-프로젝트(1)/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
